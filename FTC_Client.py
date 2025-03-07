@@ -37,3 +37,6 @@ def startGame():
 
 # Uruchomienie gry
 startGame()
+
+
+class player() :
