@@ -1,33 +1,39 @@
 import random
+import threading
 
-slowa = ["Test","jeden","dwa","trzy"]
+slowa = ["Test", "jeden", "dwa", "trzy"]
+timeIsOver = False
+score = 0
 
 
-
-score  = 0
-randomnum = random.randrange(0,len(slowa))
-print(randomnum)
-
-def setRandomWord() :
+def setRandomWord():
     randomnum = random.randrange(0, len(slowa))
-    randomWord = slowa[randomnum]
-    print(randomWord)
+    return slowa[randomnum]
 
 
-
-while score < 2 :
-    setRandomWord()
-    score += 1
-
-
+def mojTimer():
+    global timeIsOver
+    print("Czas minął!")
+    timeIsOver = True
 
 
+def startGame():
+    global timeIsOver, score
 
+    wordToGuess = setRandomWord()
+    timer = threading.Timer(5, mojTimer)
+    timer.start()
 
+    while not timeIsOver:
+        print(f"Przepisz to słowo: {wordToGuess}")
+        if input() == wordToGuess:
+            score += 1
+            print(f"Dobrze! Wynik: {score}")
+            wordToGuess = setRandomWord()
+        else:
+            print("Źle, spróbuj ponownie!")
 
-def checkWord(word):
-    print(word)
+    print(f"Koniec gry! Twój wynik to: {score}")
 
-def startGame() :
-
-    return
+# Uruchomienie gry
+startGame()
