@@ -1,16 +1,18 @@
-# Import socket module
 import socket
 
-# Create a socket object
 s = socket.socket()
-
-# Define the port on which you want to connect
 port = 12345
+s.bind(('127.0.0.1', port))
+s.listen(1)  # Allow one client to connect
 
-# connect to the server on local computer
-s.connect(('127.0.0.1', port))
+print(f"Server is running on port {port}")
 
-# receive data from the server and decoding to get the string.
-print(s.recv(1024).decode())
-# close the connection
-s.close()
+conn, addr = s.accept()
+print(f"Connected by {addr}")
+conn.send(b"Hello from the server!")
+conn.close()
+
+try:
+    s.connect(('127.0.0.1', port))
+except ConnectionRefusedError as e:
+    print(f"Connection failed: {e}")
