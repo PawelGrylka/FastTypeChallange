@@ -1,12 +1,13 @@
 import random
 import threading
 import socket
-import importlib
+import Words
 
-s = socket.socket()
-port = 12345
-s.bind(('127.0.0.1', port))
-s.listen(1)  # Allow one client to connect
+
+# s = socket.socket()
+# port = 12345
+# s.bind(('127.0.0.1', port))
+# s.listen(1)  # Allow one client to connect
 
 
 slowa = ["Test", "jeden", "dwa", "trzy"]
@@ -16,15 +17,23 @@ score = 0
 
 languageInput = input("Select Language")
 
-if languageInput == 1 :
-    language = importlib.import_module()
+
+class menu :
+    def __init__(self,language):
+        self.language = language
+        self.menuElements = language[language]
 
 
 
-def showMenu () :
-    print(firstELementMenu)
-    print(secondElementMenu)
-    print(thirdElementMenu)
+menu("PL")
+print(menu.menuElements)
+
+
+
+# def showMenu () :
+#     print(firstELementMenu)
+#     print(secondElementMenu)
+#     print(thirdElementMenu)
 
 
 while True :

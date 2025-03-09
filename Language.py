@@ -10,3 +10,5 @@ languages = {
         "thirdElementMenu": "Exit"
     }
 }
+
+print(languages["PL"])
