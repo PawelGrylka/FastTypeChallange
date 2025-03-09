@@ -67,21 +67,22 @@ class GameLogic :
 
 
     def startGame(self):
-        global timeIsOver, score
 
         wordToGuess = self.setRandomWord()
         timer = threading.Timer(5, self.mojTimer)
         timer.start()
 
 
-        while not timeIsOver:
+        while not self.timeIsOver:
             print(f"Przepisz to słowo: {wordToGuess}")
             if input() == wordToGuess:
-                score += 1
-                print(f"Dobrze! Wynik: {score}")
+                self.score += 1
+                print(f"Dobrze! Wynik: {self.score}")
                 wordToGuess = self.setRandomWord()
             else:
                 print("Źle, spróbuj ponownie!")
 
-        print(f"Koniec gry! Twój wynik to: {score}")
+        print(f"Koniec gry! Twój wynik to: {self.score}")
 
+game = GameLogic("Player1",)
+game.startGame()
