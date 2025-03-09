@@ -1,7 +1,7 @@
 import random
 import threading
 import socket
-import Words
+import Language
 
 
 # s = socket.socket()
@@ -19,16 +19,22 @@ languageInput = input("Select Language")
 
 
 class menu :
-    def __init__(self,language):
-        self.language = language
-        self.menuElements = language[language]
+    def __init__(self,languageSelected,languages):
+        self.languageSelected = languageSelected
+        self.menuElements = languages[languageSelected]
+
+    def showMenu(self):
+        print(self.menuElements["firstElementMenu"])
+        print(self.menuElements["secondElementMenu"])
+        print(self.menuElements["thirdElementMenu"])
 
 
 
-menu("PL")
-print(menu.menuElements)
 
+menuInstance = menu("PL",Language.languages)
+print(menuInstance.menuElements)
 
+menuInstance.showMenu()
 
 # def showMenu () :
 #     print(firstELementMenu)
