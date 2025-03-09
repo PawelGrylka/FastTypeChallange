@@ -12,7 +12,7 @@ import Language
 
 slowa = ["Test", "jeden", "dwa", "trzy"]
 
-languageInput = input("Select Language")
+
 
 
 class menu :
@@ -28,10 +28,27 @@ class menu :
 
 
 
-menuInstance = menu("EN",Language.languages)
-print(menuInstance.menuElements)
+# menuInstance = menu("EN",Language.languages)
+# print(menuInstance.menuElements)
 
-menuInstance.showMenu()
+# menuInstance.showMenu()
+
+
+def LanguageSelection():
+    # Pobierz klucze języków bez zmieniania `Language.languages`
+    languageKeys = list(Language.languages.keys())
+
+    while True:  # Pętla dla wyboru języka
+        languageInput = input("Select Language: ").upper()  # Pobranie języka od użytkownika
+        if languageInput not in languageKeys:
+            print("Invalid language. Try again.")  # Jeśli język jest nieprawidłowy, pytamy ponownie
+        else:
+            # Tworzenie obiektu menu w oparciu o wybrany język
+            menuInstance = menu(languageInput, Language.languages)
+            menuInstance.showMenu()  # Wyświetlenie menu
+            return menuInstance  # Zwrócenie instancji menu
+
+menuInstance = LanguageSelection()
 
 
 while True :
