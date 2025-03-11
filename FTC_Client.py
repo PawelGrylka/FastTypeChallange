@@ -103,3 +103,19 @@ class GameLogic :
 
 game = GameLogic("Player1",)
 game.startGame()
+
+
+class ServerOperations:
+    def __init__(self):
+        pass
+
+    def connectToServer(self, host, port):
+        import socket
+        try:
+            client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client_socket.connect((host, port))
+            print(f"Connected to server at {host}:{port}")
+            return client_socket
+        except ConnectionRefusedError as e:
+            print(f"Connection failed: {e}")
+            return None
