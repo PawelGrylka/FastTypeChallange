@@ -1,4 +1,12 @@
 import socket
+import requests
+
+url = "https://api64.ipify.org"
+
+payload = {"key","value"}
+
+respone = requests.get(url, json =payload)
+
 
 s = socket.socket()
 port = 12345

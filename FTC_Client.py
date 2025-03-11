@@ -27,13 +27,6 @@ class menu :
 
 
 
-
-# menuInstance = menu("EN",Language.languages)
-# print(menuInstance.menuElements)
-
-# menuInstance.showMenu()
-
-
 def LanguageSelection():
     # Pobierz klucze języków bez zmieniania `Language.languages`
     languageKeys = list(Language.languages.keys())
@@ -51,6 +44,8 @@ def LanguageSelection():
 menuInstance = LanguageSelection()
 
 
+
+
 while True :
     userInput = input("What to DO")
     if userInput == "1" :
@@ -62,6 +57,11 @@ while True :
         break
 
 
+
+
+class Player :
+    def __init__(self,PlayerName):
+        self.PlayerName = PlayerName
 
 
 
@@ -86,7 +86,7 @@ class GameLogic :
     def startGame(self):
 
         wordToGuess = self.setRandomWord()
-        timer = threading.Timer(5, self.mojTimer)
+        timer = threading.Timer(30, self.mojTimer)
         timer.start()
 
 
