@@ -133,4 +133,8 @@ while True :
         game.startGame()
     if userInput == "3" :
         print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["thirdElementMenu"]}")
+
+
+    if userInput == "4" :
+        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["fourthElementMenu"]}")
         break
