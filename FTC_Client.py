@@ -44,21 +44,6 @@ def LanguageSelection():
 menuInstance = LanguageSelection()
 
 
-
-
-while True :
-    userInput = input("What to DO")
-    if userInput == "1" :
-        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["firstElementMenu"]}")
-    if userInput == "2" :
-        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["secondElementMenu"]}")
-    if userInput == "3" :
-        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["thirdElementMenu"]}")
-        break
-
-
-
-
 class Player :
     def __init__(self,PlayerName):
         self.PlayerName = PlayerName
@@ -101,16 +86,16 @@ class GameLogic :
 
         print(f"Koniec gry! Twój wynik to: {self.score}")
 
-game = GameLogic("Player1",)
-game.startGame()
+
 
 
 class ServerOperations:
     def __init__(self):
         pass
 
+
+
     def connectToServer(self, host, port):
-        import socket
         try:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             client_socket.connect((host, port))
@@ -119,3 +104,33 @@ class ServerOperations:
         except ConnectionRefusedError as e:
             print(f"Connection failed: {e}")
             return None
+
+    def enterIP(self):
+        serverIPinput = input()
+        connection = self.connectToServer(serverIPinput,12345)
+        print("rozpoczeto probe polaczenia")
+        if connection :
+
+            #DODAC DO JEZYKA
+            print("polaczone")
+        else :
+            print("Nie polaczono")
+
+
+
+
+server = ServerOperations()
+
+
+while True :
+    userInput = input("What to DO")
+    if userInput == "1" :
+        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["firstElementMenu"]}")
+        server.enterIP()
+    if userInput == "2" :
+        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["secondElementMenu"]}")
+        game = GameLogic("Player1", )
+        game.startGame()
+    if userInput == "3" :
+        print(f"{menuInstance.menuElements["menuSelect"]} : {menuInstance.menuElements["thirdElementMenu"]}")
+        break

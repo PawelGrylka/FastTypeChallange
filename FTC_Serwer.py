@@ -1,33 +1,47 @@
 import socket
 import requests
 
-def getServerIP() :
+# Pobierz IP serwera
+def getServerIP():
     url = "https://api64.ipify.org"
-    payload = {"key": "value"}  # Corrected payload
-    response = requests.get(url, params=payload)
-    print(f"API Response: {response.text}")
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        print(f"Twoje publiczne IP: {response.text}")
+        return response.text
+    except requests.RequestException as e:
+        print(f"Błąd przy pobieraniu IP: {e}")
 
-def serverStart() :
-    server_socket = socket.socket()
+# Uruchom serwer
+def serverStart():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     port = 12345
-    server_socket.bind(('127.0.0.1', port))
+    server_socket.bind(('0.0.0.0', port))
     server_socket.listen(1)
 
-    print(f"Server is running on port {port}")
+    print(f"✅ Serwer działa na porcie {port}")
 
-# Accept a connection
     conn, addr = server_socket.accept()
-    print(f"Connected by {addr}")
+    print(f"🔗 Połączenie od: {addr}")
+
     conn.send(b"Hello from the server!")
     conn.close()
 
-# Socket client
-    client_socket = socket.socket()
-    try:
-        client_socket.connect(('0.0.0.0', port))
-    except ConnectionRefusedError as e:
-        print(f"Connection failed: {e}")
-    client_socket.close()
+# Uruchom klienta
+def clientStart():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_ip = "127.0.0.1"  # Możesz tu wpisać IP serwera, jeśli jest w innej sieci.
+    port = 12345
 
+    try:
+        client_socket.connect((server_ip, port))
+        response = client_socket.recv(1024)
+        print(f"📩 Odpowiedź serwera: {response.decode()}")
+    except ConnectionRefusedError as e:
+        print(f"❌ Połączenie nieudane: {e}")
+    finally:
+        client_socket.close()
+
+# Uruchamianie
 getServerIP()
-serverStart()
+serverStart()  # Uruchomi serwer
