@@ -2,6 +2,7 @@ from language import languages
 from menu import Menu
 from game_logic import GameLogic
 from network import Client
+from serwer import Server
 
 def select_language():
     language_keys = list(languages.keys())
@@ -22,7 +23,9 @@ if __name__ == "__main__":
         user_input = input("Co chcesz zrobić? ")
 
         if user_input == "1":
-            pass
+
+            server = Server()
+            server.wait_for_players()
 
         elif user_input == "2":
             server_ip = input("Podaj IP serwera: ")
