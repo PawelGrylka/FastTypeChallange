@@ -35,9 +35,6 @@ Podaj adres IP serwera, gdy zostaniesz o to poproszony.
 Uruchamianie gry lokalnej:
 
 Uruchom główny plik:
-css
-Kopiuj
-Edytuj
 python main.py
 W menu wybierz opcję „Gra Lokalna” (opcja 2). Gra rozpocznie się, a Twoim zadaniem będzie przepisywanie wyświetlanych słów. Gra trwa 30 sekund.
 Opis modułów
