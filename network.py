@@ -1,7 +1,7 @@
 import socket
 
 class Client:
-    def __init__(self, server_ip, port=12345):
+    def __init__(self, server_ip, port=12347):
         self.server_ip = server_ip
         self.port = port
 
