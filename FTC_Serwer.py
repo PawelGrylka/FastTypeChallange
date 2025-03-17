@@ -23,7 +23,7 @@ def serverStart():
     port = 12345
 
     try:
-        server_socket.bind(('0.0.0.0', port))  # Nasłuchiwanie na wszystkich interfejsach
+        server_socket.bind(('127.0.0.1', port))  # Nasłuchiwanie na wszystkich interfejsach
         server_socket.listen(1)
         print(f"✅ Serwer działa na porcie {port} i czeka na połączenia...")
 
@@ -81,5 +81,4 @@ def startServerAndClient():
     else:
         print("🚨 Nie można pobrać IP, klient nie zostanie uruchomiony.")
 
-# Rozpoczynanie
-startServerAndClient()
+serverStart()

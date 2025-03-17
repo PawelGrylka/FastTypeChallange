@@ -4,10 +4,7 @@ import socket
 import Language
 
 
-# s = socket.socket()
-# port = 12345
-# s.bind(('127.0.0.1', port))
-# s.listen(1)  # Allow one client to connect
+
 
 
 slowa = ["Test", "jeden", "dwa", "trzy"]
