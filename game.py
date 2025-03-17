@@ -11,19 +11,22 @@ def select_language():
             print("Invalid language. Try again.")
         else:
             menu_instance = Menu(language_input, languages)
-            menu_instance.show_menu()
+
+
             return menu_instance
 
 if __name__ == "__main__":
     menu_instance = select_language()
     while True:
+        menu_instance.show_menu()
         user_input = input("Co chcesz zrobić? ")
+
         if user_input == "1":
             server_ip = input("Podaj IP serwera: ")
             client = Client(server_ip)
             client.connect()
         elif user_input == "2":
-            game = GameLogic("Player1")
+            game = GameLogic("Player1",menu_instance.language_selected)
             game.start_game()
         elif user_input == "3":
             print("Wyjście z gry.")
