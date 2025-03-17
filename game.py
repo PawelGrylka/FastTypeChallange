@@ -22,14 +22,22 @@ if __name__ == "__main__":
         user_input = input("Co chcesz zrobić? ")
 
         if user_input == "1":
+            pass
+
+        elif user_input == "2":
             server_ip = input("Podaj IP serwera: ")
             client = Client(server_ip)
             client.connect()
-        elif user_input == "2":
+
+        elif user_input == "3":
             game = GameLogic("Player1",menu_instance.language_selected)
             game.start_game()
-        elif user_input == "3":
+
+        elif user_input == "4":
             print("Wyjście z gry.")
             break
+        elif user_input == "5" :
+            print("HELP")
+
         else:
             print("Nieprawidłowy wybór. Spróbuj ponownie.")

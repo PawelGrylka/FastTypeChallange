@@ -1,16 +1,18 @@
 languages = {
     "PL": {
-        "firstElementMenu": "Połącz z Serwerem",
-        "secondElementMenu": "Gra Lokalna",
-        "thirdElementMenu": "Wyjdź",
-        "fourthElementMenu": "Pomoc",
+        "firstElementMenu": "Gra Multiplayer Host",
+        "secondElementMenu": "Gra Multiplayer-Drugi Gracz",
+        "thirdElementMenu": "Gra Lokalna",
+        "fourthElementMenu": "Wyjdz",
+        "fifthElementMenu" : "Pomoc",
         "menuSelect": "Wybrałeś opcję"
     },
     "EN": {
-        "firstElementMenu": "Connect to Server",
-        "secondElementMenu": "Local Game",
-        "thirdElementMenu": "Exit",
-        "fourthElementMenu": "Help",
+        "firstElementMenu": "Multiplayer Game Host",
+        "secondElementMenu": "Multiplayer Game Second Player",
+        "thirdElementMenu": "Local Game",
+        "fourthElementMenu": "Exit",
+        "fifthElementMenu" : "Help",
         "menuSelect": "You chose"
     }
 }
